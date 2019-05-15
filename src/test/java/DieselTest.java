@@ -14,7 +14,7 @@ public class DieselTest {
     @Before
     public void before(){
         engine = new Engine(1.2, 100);
-        diesel = new Diesel("Polo", 10, engine);
+        diesel = new Diesel("Polo", 10.0, engine);
     }
 
     @Test
@@ -24,7 +24,7 @@ public class DieselTest {
 
     @Test
     public void hasPrice(){
-        assertEquals(10, diesel.getPrice());
+        assertEquals(10.0, diesel.getPrice(), 0.01);
     }
 
     @Test
@@ -63,5 +63,20 @@ public class DieselTest {
     public void canSetPurchasable(){
         diesel.setPurchasable(true);
         assertEquals(true, diesel.isPurchasable());
+    }
+
+    @Test
+    public void canBeWrittenOff(){
+        diesel.setDamage(Damage.WRITEOFF);
+        diesel.updatePriceByDamage();
+        assertEquals(0.0, diesel.getPrice(),0.01);
+    }
+
+    @Test
+    public void canSetPriceByDamageButNotWriteOff(){
+        diesel.setDamage(Damage.LIGHT);
+        diesel.updatePriceByDamage();
+        assertEquals(7.5, diesel.getPrice(), 0.01);
+
     }
 }

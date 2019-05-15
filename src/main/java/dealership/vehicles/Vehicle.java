@@ -6,13 +6,13 @@ import dealership.components.Engine;
 public abstract class Vehicle {
 
     private String make;
-    private int price;
+    private double price;
     private Engine engine;
     private Damage damage;
     private boolean rentable;
     private boolean purchasable;
 
-    public Vehicle(String make, int price, Engine engine) {
+    public Vehicle(String make, double price, Engine engine) {
         this.make = make;
         this.price = price;
         this.engine = engine;
@@ -25,11 +25,11 @@ public abstract class Vehicle {
         return make;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -59,5 +59,16 @@ public abstract class Vehicle {
 
     public void setPurchasable(boolean purchasable) {
         this.purchasable = purchasable;
+    }
+
+    public void updatePriceByDamage(){
+        if (this.getDamage() == damage.WRITEOFF) {
+            setPrice(0);
+        } else {
+            double percentage = ((double) damage.getPriceAdjustment() / 100d);
+            double priceOfVehiclePrice = percentage * this.price;
+            double newPrice = (this.price - priceOfVehiclePrice);
+            setPrice(newPrice);
+        }
     }
 }

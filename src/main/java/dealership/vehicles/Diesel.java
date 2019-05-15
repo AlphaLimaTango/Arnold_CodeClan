@@ -4,7 +4,7 @@ import dealership.components.Engine;
 
 public class Diesel extends Vehicle {
 
-    public Diesel(String make, int price, Engine engine) {
+    public Diesel(String make, double price, Engine engine) {
         super(make, price, engine);
     }
 
