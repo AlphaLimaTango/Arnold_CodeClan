@@ -1,6 +1,7 @@
+import dealership.Damage;
 import dealership.components.Engine;
 import dealership.customers.Customer;
-import dealership.vehicles.Vehicle;
+import dealership.vehicles.Diesel;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,14 +10,14 @@ import static org.junit.Assert.assertEquals;
 public class CustomerTest {
 
     Customer customer;
-    Vehicle vehicle;
+    Diesel diesel;
     Engine engine;
 
     @Before
     public void before(){
         engine = new Engine(1.8, 100);
         customer = new Customer(18, 100.00);
-//        vehicle = new Vehicle("Toyota", 100, engine);
+        diesel = new Diesel("Toyota", 100, engine);
     }
 
     @Test
@@ -42,7 +43,16 @@ public class CustomerTest {
 
     @Test
     public void canSetVehicle(){
-        customer.setVehicle(vehicle);
-        assertEquals(vehicle, customer.getVehicle());
+        customer.setVehicle(diesel);
+        assertEquals(diesel, customer.getVehicle());
     }
+
+    @Test
+    public void canInflictDamage(){
+        customer.inflictDamage(diesel, Damage.MODERATE);
+        assertEquals(Damage.MODERATE, diesel.getDamage());
+    }
+
+//    @Test
+//    public void canSellCar
 }

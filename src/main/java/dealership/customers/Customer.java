@@ -1,5 +1,7 @@
 package dealership.customers;
 
+import dealership.Damage;
+import dealership.vehicles.Diesel;
 import dealership.vehicles.Vehicle;
 
 public class Customer {
@@ -32,5 +34,9 @@ public class Customer {
 
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
+    }
+
+    public void inflictDamage(Vehicle vehicle, Damage damage) {
+        vehicle.setDamage(damage);
     }
 }
