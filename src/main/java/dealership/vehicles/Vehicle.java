@@ -12,11 +12,11 @@ public abstract class Vehicle {
     private boolean rentable;
     private boolean purchasable;
 
-    public Vehicle(String make, int price, Engine engine, Damage damage) {
+    public Vehicle(String make, int price, Engine engine) {
         this.make = make;
         this.price = price;
         this.engine = engine;
-        this.damage = damage;
+        this.damage = null;
         this.rentable = false;
         this.purchasable = false;
     }

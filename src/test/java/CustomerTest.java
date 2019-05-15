@@ -1,3 +1,4 @@
+import dealership.components.Engine;
 import dealership.customers.Customer;
 import dealership.vehicles.Vehicle;
 import org.junit.Before;
@@ -9,11 +10,13 @@ public class CustomerTest {
 
     Customer customer;
     Vehicle vehicle;
+    Engine engine;
 
     @Before
     public void before(){
+        engine = new Engine(1.8, 100);
         customer = new Customer(18, 100.00);
-//        vehicle = new Vehicle();
+//        vehicle = new Vehicle("Toyota", 100, engine);
     }
 
     @Test
@@ -37,9 +40,9 @@ public class CustomerTest {
         assertEquals(150.00, customer.getMoney(), 0.01);
     }
 
-//    @Test
-//    public void canSetVehicle(){
-//        customer.setVehicle(vehicle);
-//        assertEquals(vehicle, customer.getVehicle());
-//    }
+    @Test
+    public void canSetVehicle(){
+        customer.setVehicle(vehicle);
+        assertEquals(vehicle, customer.getVehicle());
+    }
 }
