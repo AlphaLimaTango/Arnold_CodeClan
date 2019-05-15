@@ -13,7 +13,7 @@ public class CustomerTest {
     @Before
     public void before(){
         customer = new Customer(18, 100.00);
-//        vehicle = new Vehicle()
+//        vehicle = new Vehicle();
     }
 
     @Test
