@@ -2,15 +2,15 @@ package dealership.components;
 
 public class Engine {
 
-    private int litres;
+    private double litres;
     private int bhp;
 
-    public Engine(int litres, int bhp) {
+    public Engine(double litres, int bhp) {
         this.litres = litres;
         this.bhp = bhp;
     }
 
-    public int getLitres() {
+    public double getLitres() {
         return litres;
     }
 
